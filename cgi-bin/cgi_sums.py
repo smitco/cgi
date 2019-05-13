@@ -6,4 +6,14 @@ cgitb.enable()
 
 print("Content-type: text/plain")
 print()
-print("Your job is to make this work")
+
+form = cgi.FieldStorage()
+listval = form.getlist('operand')
+
+print("operands: {}".format(str(listval)))
+
+sum = 0
+for i in listval:
+    sum += int(i)
+    
+print("sum: {}".format(sum))
